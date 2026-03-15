@@ -3,6 +3,7 @@ from imutils import face_utils
 import imutils
 import dlib
 import cv2
+import winsound
 
 def eye_aspect_ratio(eye):
     A = distance.euclidean(eye[1], eye[5])
@@ -59,6 +60,7 @@ while True:
             if flag >= frame_check:
                 cv2.putText(frame, "!!! DROWSINESS ALERT !!!", (10, 30),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                winsound.Beep(2500, 1000)
                 cv2.putText(frame, "Critical Fatigue Detected", (10, 325),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
         else:
